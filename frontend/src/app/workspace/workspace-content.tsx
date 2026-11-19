@@ -1,11 +1,11 @@
 import { cookies } from "next/headers";
 import { Toaster } from "sonner";
 
+import { RequestModelSettings } from "@/cloudagent/request-model-settings";
 import { QueryClientProvider } from "@/components/query-client-provider";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { CommandPalette } from "@/components/workspace/command-palette";
 import { GatewayOfflineBanner } from "@/components/workspace/gateway-offline-banner";
-import { RequestModelSettings } from "@/cloudagent/request-model-settings";
 import { ModelLoadErrorBanner } from "@/components/workspace/model-load-error-banner";
 import { SettingsDialogHost } from "@/components/workspace/settings";
 import { WorkspaceSettingsDeepLink } from "@/components/workspace/workspace-settings-deep-link";

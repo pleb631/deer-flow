@@ -37,6 +37,7 @@ RUN cd /app/frontend && pnpm install --frozen-lockfile
 # and the frontend falls back to package.json's version.
 ARG APP_VERSION=""
 ENV NEXT_PUBLIC_APP_VERSION=$APP_VERSION
+ARG DEER_FLOW_INTERNAL_GATEWAY_BASE_URL
 RUN cd /app/frontend && SKIP_ENV_VALIDATION=1 pnpm build
 
 # ── Prod: minimal runtime with pre-built output ───────────────────────────────

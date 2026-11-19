@@ -5,6 +5,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
+import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -23,7 +24,6 @@ import {
 import type { CapabilityInstallation } from "@/core/capabilities/types";
 import { useI18n } from "@/core/i18n/hooks";
 import type { Translations } from "@/core/i18n/locales/types";
-import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 import { isStaticWebsiteOnly } from "@/core/static-mode";
 import { cn } from "@/lib/utils";
 

@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-query";
 import { toast } from "sonner";
 
+import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 import { useAuth } from "@/core/auth/AuthProvider";
 
 import {
@@ -17,7 +18,6 @@ import {
   updateMCPServerState,
 } from "./api";
 import type { MCPScope } from "./api";
-import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 import type { MCPServerConfig } from "./types";
 
 export function useMCPConfig(scope: MCPScope = "user") {

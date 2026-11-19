@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+import { clearRequestModel, setRequestModel } from "@/cloudagent/model";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { clearRequestModel, setRequestModel } from "@/cloudagent/model";
 import { useI18n } from "@/core/i18n/hooks";
 
 export function RequestModelSettings() {

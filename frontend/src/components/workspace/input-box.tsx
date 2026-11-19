@@ -38,6 +38,7 @@ import {
 import { flushSync } from "react-dom";
 import { toast } from "sonner";
 
+import { REQUEST_MODE_MODELS } from "@/cloudagent/mode-model";
 import {
   PromptInput,
   PromptInputActionMenu,
@@ -73,7 +74,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { fetch } from "@/core/api/fetcher";
 import { useAuth } from "@/core/auth/AuthProvider";
-import { REQUEST_MODE_MODELS } from "@/cloudagent/mode-model";
 import { getBackendBaseURL } from "@/core/config";
 import {
   buildConversationReferenceMetadata,

@@ -1,10 +1,10 @@
 "use client";
 
+import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 import { useAgentToolGroups } from "@/core/agents";
 import { capabilityCopy } from "@/core/capabilities/copy";
 import { useCapabilityInstallations } from "@/core/capabilities/hooks";
 import { useI18n } from "@/core/i18n/hooks";
-import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 
 function Selection({
   adapter,
