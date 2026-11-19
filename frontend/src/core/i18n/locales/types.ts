@@ -1,6 +1,10 @@
 import type { LucideIcon } from "lucide-react";
 
 export interface Translations {
+  cloudagent: {
+    modelName: string; modelURL: string; modelKey: string;
+    apply: string; applied: string; instructions: string; agentName: string;
+  };
   // Locale meta
   locale: {
     localName: string;
