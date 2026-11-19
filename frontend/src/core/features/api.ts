@@ -1,6 +1,6 @@
 import { fetch } from "@/core/api/fetcher";
 import { getBackendBaseURL } from "@/core/config";
-import { MCP_ENABLED } from "@/core/mcp/enabled";
+import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 
 export interface FeaturesResponse {
   agents_api: { enabled: boolean };

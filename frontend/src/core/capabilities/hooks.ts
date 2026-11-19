@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetch } from "@/core/api/fetcher";
 import { useAuth } from "@/core/auth/AuthProvider";
 import { getBackendBaseURL } from "@/core/config";
-import { MCP_ENABLED } from "@/core/mcp/enabled";
+import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 
 import type { InstallationList, PluginManifest } from "./types";
 

@@ -1,6 +1,6 @@
 import { expect, test } from "@rstest/core";
 
-import { REQUEST_MODE_MODELS } from "@/core/cloudagent/mode-model";
+import { REQUEST_MODE_MODELS } from "@/cloudagent/mode-model";
 import {
   getResolvedMode,
   reasoningEffortForMode,

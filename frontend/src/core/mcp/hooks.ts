@@ -17,7 +17,7 @@ import {
   updateMCPServerState,
 } from "./api";
 import type { MCPScope } from "./api";
-import { MCP_ENABLED } from "./enabled";
+import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 import type { MCPServerConfig } from "./types";
 
 export function useMCPConfig(scope: MCPScope = "user") {

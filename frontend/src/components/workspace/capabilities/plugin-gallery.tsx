@@ -23,7 +23,7 @@ import {
 import type { CapabilityInstallation } from "@/core/capabilities/types";
 import { useI18n } from "@/core/i18n/hooks";
 import type { Translations } from "@/core/i18n/locales/types";
-import { MCP_ENABLED } from "@/core/mcp/enabled";
+import { MCP_ENABLED } from "@/cloudagent/mcp-enabled";
 import { isStaticWebsiteOnly } from "@/core/static-mode";
 import { cn } from "@/lib/utils";
 

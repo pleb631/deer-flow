@@ -109,7 +109,7 @@ export async function fetch(
   if (isStateChangingMethod(method)) {
     const path = new URL(url, "http://localhost").pathname;
     if (/^\/api\/(threads|runs|skills|input-polish|memory)(\/|$)/.test(path)) {
-      const { requestModelHeaders } = await import("../cloudagent/model");
+      const { requestModelHeaders } = await import("@/cloudagent/model");
       const merged = new Headers(headers);
       Object.entries(requestModelHeaders()).forEach(([key, value]) => merged.set(key, value));
       headers = merged;

@@ -73,7 +73,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { fetch } from "@/core/api/fetcher";
 import { useAuth } from "@/core/auth/AuthProvider";
-import { REQUEST_MODE_MODELS } from "@/core/cloudagent/mode-model";
+import { REQUEST_MODE_MODELS } from "@/cloudagent/mode-model";
 import { getBackendBaseURL } from "@/core/config";
 import {
   buildConversationReferenceMetadata,

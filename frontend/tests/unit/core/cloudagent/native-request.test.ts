@@ -1,7 +1,7 @@
 import { afterEach, expect, rs, test } from "@rstest/core";
 
-import { clearRequestModel, setRequestModel } from "@/core/cloudagent/model";
-import { prepareNativeRequest } from "@/core/cloudagent/native-request";
+import { clearRequestModel, setRequestModel } from "@/cloudagent/model";
+import { prepareNativeRequest } from "@/cloudagent/native-request";
 
 afterEach(() => { clearRequestModel(); rs.restoreAllMocks(); });
 

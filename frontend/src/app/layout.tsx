@@ -3,13 +3,11 @@ import "@/styles/globals.css";
 import { type Metadata } from "next";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { cloudAgentMetadata } from "@/cloudagent/branding";
 import { ArtifactDraftsProvider } from "@/core/artifacts/draft-context";
 import { DEFAULT_LOCALE } from "@/core/i18n/locale";
 
-export const metadata: Metadata = {
-  title: "智汇万象",
-  description: "智汇万象智能体工作台",
-};
+export const metadata: Metadata = cloudAgentMetadata;
 
 export default function RootLayout({
   children,

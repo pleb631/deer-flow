@@ -15,7 +15,7 @@ import { toast } from "sonner";
 
 import type { PromptInputMessage } from "@/components/ai-elements/prompt-input";
 
-import { getRequestModel } from "../cloudagent/model";
+import { getRequestModel } from "@/cloudagent/model";
 import { getAPIClient } from "../api";
 import { fetch } from "../api/fetcher";
 import { getBackendBaseURL } from "../config";
