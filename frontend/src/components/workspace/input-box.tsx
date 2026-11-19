@@ -73,6 +73,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { fetch } from "@/core/api/fetcher";
 import { useAuth } from "@/core/auth/AuthProvider";
+import { REQUEST_MODE_MODELS } from "@/core/cloudagent/mode-model";
 import { getBackendBaseURL } from "@/core/config";
 import {
   buildConversationReferenceMetadata,
@@ -89,7 +90,6 @@ import {
   isHiddenFromUIMessage,
   type FileInMessage,
 } from "@/core/messages/utils";
-import { useModels } from "@/core/models/hooks";
 import {
   getReasoningEffortOptions,
   getResolvedMode,
@@ -453,7 +453,7 @@ export function InputBox({
   const mentionInFlight = useRef(false);
   const dismissedMention = useRef<string | null>(null);
   const [modelDialogOpen, setModelDialogOpen] = useState(false);
-  const { models } = useModels();
+  const models = REQUEST_MODE_MODELS;
   const { user } = useAuth();
   const { thread, isMock } = useThread();
   const { attachments, textInput } = usePromptInputController();

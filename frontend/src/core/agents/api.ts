@@ -45,7 +45,10 @@ export async function listAgents(): Promise<Agent[]> {
   const res = await fetch(`${getBackendBaseURL()}/api/agents`);
   if (!res.ok) throw new Error(`Failed to load agents: ${res.statusText}`);
   const data = (await res.json()) as { agents: Agent[] };
-  return data.agents;
+  const defaultAgent = res.headers.get("X-CloudAgent-Default-Agent") ?? "cloudagent";
+  return data.agents.filter(
+    (agent) => agent.name !== "lead_agent" && agent.name !== defaultAgent,
+  );
 }
 
 export async function listAgentToolGroups(): Promise<string[]> {
@@ -160,7 +163,7 @@ export async function checkAgentName(
     );
   } catch {
     throw new AgentNameCheckError(
-      "Could not reach the DeerFlow backend.",
+      "Could not reach the 智汇万象 backend.",
       "backend_unreachable",
     );
   }
@@ -172,7 +175,7 @@ export async function checkAgentName(
     }
     if (BACKEND_UNAVAILABLE_STATUSES.has(res.status)) {
       throw new AgentNameCheckError(
-        "Could not reach the DeerFlow backend.",
+        "Could not reach the 智汇万象 backend.",
         "backend_unreachable",
       );
     }

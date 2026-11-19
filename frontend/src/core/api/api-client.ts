@@ -5,6 +5,7 @@ import {
   RunsClient,
 } from "@langchain/langgraph-sdk/client";
 
+import { prepareNativeRequest } from "../cloudagent/native-request";
 import { getLangGraphBaseURL } from "../config";
 import { isStaticWebsiteOnly } from "../static-mode";
 import {
@@ -28,7 +29,8 @@ import { forceChatRunStreamOptions } from "./stream-mode";
  * share :func:`readCsrfCookie` and :const:`STATE_CHANGING_METHODS` so
  * the contract stays in lockstep.
  */
-function injectCsrfHeader(_url: URL, init: RequestInit): RequestInit {
+async function injectCsrfHeader(_url: URL, init: RequestInit): Promise<RequestInit> {
+  init = await prepareNativeRequest(_url, init);
   if (!isStateChangingMethod(init.method ?? "GET")) {
     return init;
   }

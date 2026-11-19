@@ -15,6 +15,7 @@ import { toast } from "sonner";
 
 import type { PromptInputMessage } from "@/components/ai-elements/prompt-input";
 
+import { getRequestModel } from "../cloudagent/model";
 import { getAPIClient } from "../api";
 import { fetch } from "../api/fetcher";
 import { getBackendBaseURL } from "../config";
@@ -2708,6 +2709,7 @@ export function useThreadStream({
       let uploadedFiles: FileInMessage[] = [];
 
       try {
+        if (!isMock) getRequestModel();
         // Upload files first if any
         if (message.files && message.files.length > 0) {
           setIsUploading(true);
