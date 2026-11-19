@@ -381,14 +381,6 @@ export function ScheduledTaskScheduleInput({
                 placeholder={labels.fields.cronPlaceholder}
                 aria-label={labels.fields.cron}
               />
-              <a
-                href="https://crontab.guru/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-muted-foreground text-xs hover:underline"
-              >
-                {labels.cronHelp} ↗
-              </a>
             </div>
           )}
         </>

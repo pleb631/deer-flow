@@ -53,7 +53,7 @@ function minted(code: string, expiresIn = 600): ChannelConnectResponse {
     mode: "binding_code",
     url: null,
     code,
-    instruction: `Send /connect ${code} to the DeerFlow Slack bot.`,
+    instruction: `Send /connect ${code} to the 智汇万象 Slack bot.`,
     expires_in: expiresIn,
   };
 }
@@ -121,12 +121,12 @@ describe("ChannelBindingCodeDialog", () => {
     expect(screen.getByRole("dialog", { name: "Connect Slack" })).toBeTruthy();
     expect(
       screen.getByText(
-        "Send this command to the Slack bot to link it to your DeerFlow account.",
+        "Send this command to the Slack bot to link it to your 智汇万象 account.",
       ),
     ).toBeTruthy();
     expect(screen.getByText("Waiting for your message in Slack…")).toBeTruthy();
     // The server's English sentence is no longer shown.
-    expect(screen.queryByText(/DeerFlow Slack bot/)).toBeNull();
+    expect(screen.queryByText(/智汇万象 Slack bot/)).toBeNull();
 
     fireEvent.click(screen.getByRole("button", { name: "Copy command" }));
     expect(await screen.findByRole("button", { name: "Copied" })).toBeTruthy();
@@ -238,13 +238,13 @@ describe("ChannelBindingCodeDialog", () => {
     {
       target: provider("feishu", "Feishu"),
       title: "连接飞书",
-      sentence: "把下面这条命令发给飞书机器人，即可绑定到你的 DeerFlow 账号。",
+      sentence: "把下面这条命令发给飞书机器人，即可绑定到你的 智汇万象 账号。",
     },
     {
       target: provider(),
       title: "连接 Slack",
       sentence:
-        "把下面这条命令发给 Slack 机器人，即可绑定到你的 DeerFlow 账号。",
+        "把下面这条命令发给 Slack 机器人，即可绑定到你的 智汇万象 账号。",
     },
   ])(
     "speaks Chinese in a Chinese UI ($title)",

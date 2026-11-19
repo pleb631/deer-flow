@@ -159,12 +159,12 @@ describe("parseArtifactViewerQuery", () => {
 describe("artifactViewerTitle", () => {
   test("names the window after the artifact file", () => {
     expect(artifactViewerTitle("/mnt/user-data/outputs/report.md")).toBe(
-      "report.md - DeerFlow",
+      "report.md - 智汇万象",
     );
   });
 
   test("falls back to the product name without a target", () => {
-    expect(artifactViewerTitle(undefined)).toBe("DeerFlow");
+    expect(artifactViewerTitle(undefined)).toBe("智汇万象");
   });
 });
 

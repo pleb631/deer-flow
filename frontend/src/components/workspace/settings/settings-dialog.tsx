@@ -171,7 +171,10 @@ export function SettingsDialog(props: SettingsDialogProps) {
         icon: UserCogIcon,
       });
     }
-    return items;
+    // Temporarily hide models and channels; retain their implementations for restoration.
+    return items.filter(
+      (section) => section.id !== "models" && section.id !== "channels",
+    );
   }, [
     isAdmin,
     t.settings.sections.models,

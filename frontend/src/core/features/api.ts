@@ -1,5 +1,6 @@
 import { fetch } from "@/core/api/fetcher";
 import { getBackendBaseURL } from "@/core/config";
+import { MCP_ENABLED } from "@/core/mcp/enabled";
 
 export interface FeaturesResponse {
   agents_api: { enabled: boolean };
@@ -85,7 +86,8 @@ export async function fetchFeatures(): Promise<FeaturesResponse> {
   if (!res.ok) {
     throw new Error(`Failed to load features: ${res.statusText}`);
   }
-  return (await res.json()) as FeaturesResponse;
+  const features = (await res.json()) as FeaturesResponse;
+  return { ...features, mcp_tasks: { enabled: MCP_ENABLED && features.mcp_tasks?.enabled === true } };
 }
 
 export async function fetchAgentsApiEnabled(): Promise<boolean> {

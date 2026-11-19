@@ -38,7 +38,7 @@ export function WorkspaceHeader({ className }: { className?: string }) {
                 isMobile && "hidden",
               )}
             >
-              DF
+              智汇
             </div>
             <WorkspaceSidebarTrigger
               className={cn(
@@ -51,11 +51,11 @@ export function WorkspaceHeader({ className }: { className?: string }) {
           <div className="flex items-center justify-between gap-2">
             {env.NEXT_PUBLIC_STATIC_WEBSITE_ONLY === "true" ? (
               <Link href="/" className="text-primary ml-2 font-serif">
-                DeerFlow
+                智汇万象
               </Link>
             ) : (
               <div className="text-primary ml-2 cursor-default font-serif">
-                DeerFlow
+                智汇万象
               </div>
             )}
             <WorkspaceSidebarTrigger />

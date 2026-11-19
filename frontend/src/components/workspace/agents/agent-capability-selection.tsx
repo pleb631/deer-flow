@@ -4,6 +4,7 @@ import { useAgentToolGroups } from "@/core/agents";
 import { capabilityCopy } from "@/core/capabilities/copy";
 import { useCapabilityInstallations } from "@/core/capabilities/hooks";
 import { useI18n } from "@/core/i18n/hooks";
+import { MCP_ENABLED } from "@/core/mcp/enabled";
 
 function Selection({
   adapter,
@@ -164,7 +165,7 @@ export function AgentCapabilitySelection({
         {copy.selectionTitle}
       </summary>
       <p className="text-muted-foreground text-xs leading-5">{copy.hint}</p>
-      <Selection adapter="mcp" value={plugins} onChange={onPluginsChange} />
+      {MCP_ENABLED && <Selection adapter="mcp" value={plugins} onChange={onPluginsChange} />}
       <Selection adapter="skills" value={skills} onChange={onSkillsChange} />
       <ToolGroupSelection value={toolGroups} onChange={onToolGroupsChange} />
     </details>

@@ -23,6 +23,7 @@ import {
 import type { CapabilityInstallation } from "@/core/capabilities/types";
 import { useI18n } from "@/core/i18n/hooks";
 import type { Translations } from "@/core/i18n/locales/types";
+import { MCP_ENABLED } from "@/core/mcp/enabled";
 import { isStaticWebsiteOnly } from "@/core/static-mode";
 import { cn } from "@/lib/utils";
 
@@ -79,7 +80,7 @@ export function PluginGallery({ query }: { query: string }) {
   const canManage = !!user && !isStaticWebsiteOnly();
   const canManagePlatform = canManage && user?.system_role === "admin";
   const directory = useCapabilityCatalog();
-  const definitions = directory.data ?? [];
+  const definitions = (directory.data ?? []).filter(plugin => MCP_ENABLED || (plugin.kind !== "mcp" && plugin.adapter !== "mcp"));
   const adapterNames = [
     ...new Set(
       definitions
@@ -269,7 +270,7 @@ export function PluginGallery({ query }: { query: string }) {
           </h2>
           <p className="text-muted-foreground text-sm">{labels.platformHint}</p>
         </div>
-        {canManagePlatform ? (
+        {MCP_ENABLED && canManagePlatform ? (
           <MCPPluginManager
             key={`deployment:${user?.id}`}
             scope="deployment"
@@ -292,7 +293,7 @@ export function PluginGallery({ query }: { query: string }) {
         aria-labelledby="personal-plugins-heading"
         className="space-y-5 border-t pt-8"
       >
-        {canManage ? (
+        {MCP_ENABLED && canManage ? (
           <MCPPluginManager
             key={user?.id}
             query={query}

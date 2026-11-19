@@ -17,6 +17,7 @@ import {
   updateMCPServerState,
 } from "./api";
 import type { MCPScope } from "./api";
+import { MCP_ENABLED } from "./enabled";
 import type { MCPServerConfig } from "./types";
 
 export function useMCPConfig(scope: MCPScope = "user") {
@@ -24,7 +25,7 @@ export function useMCPConfig(scope: MCPScope = "user") {
   const { data, isLoading, error } = useQuery({
     queryKey: ["mcpConfig", scope, user?.id],
     queryFn: () => loadMCPConfig(scope),
-    enabled: !!user && (scope === "user" || user.system_role === "admin"),
+    enabled: MCP_ENABLED && !!user && (scope === "user" || user.system_role === "admin"),
     retry: (count, error) =>
       !(error instanceof MCPConfigRequestError) && count < 3,
   });
